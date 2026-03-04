@@ -192,7 +192,7 @@ export async function POST(request: NextRequest) {
         error: 'Failed to save proposal.',
         detail: dbError.message,
         code: dbError.code,
-        hint: (dbError as Record<string, unknown>).hint ?? null,
+        hint: (dbError as unknown as Record<string, unknown>).hint ?? null,
       },
       { status: 500 },
     );
