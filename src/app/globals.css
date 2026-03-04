@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0d0010;
+  --foreground: #fff0f5;
 }
 
 @theme inline {
@@ -12,15 +12,92 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Georgia', serif;
+  overflow-x: hidden;
+  cursor: none;
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1a001f; }
+::-webkit-scrollbar-thumb { background: #e91e8c; border-radius: 3px; }
+
+/* Glassmorphism */
+.glass-card {
+  background: rgba(255, 20, 147, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 105, 180, 0.25);
+  box-shadow: 0 8px 32px rgba(233, 30, 140, 0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Glow text */
+.glow-text {
+  text-shadow: 0 0 20px rgba(255,105,180,0.8), 0 0 40px rgba(255,20,147,0.5), 0 0 80px rgba(255,20,147,0.3);
+}
+
+/* Gradient text shimmer */
+.gradient-text {
+  background: linear-gradient(135deg, #ff6eb4, #ff1493, #ffb3d9, #ff6eb4);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Typewriter cursor */
+.Typewriter__cursor { color: #ff69b4 !important; }
+
+/* Heartbeat */
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  14% { transform: scale(1.2); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  70% { transform: scale(1); }
+}
+.heartbeat { animation: heartbeat 1.5s ease-in-out infinite; }
+
+/* Gradient background animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animated-bg {
+  background: linear-gradient(-45deg, #0d0010, #1a0020, #2d0035, #200020, #0d001a);
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Wiggle for NO button */
+@keyframes wiggle {
+  0%,100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-8deg) scale(0.95); }
+  75% { transform: rotate(8deg) scale(0.95); }
+}
+.wiggle { animation: wiggle 0.3s ease-in-out 3; }
+
+/* Pulse ring */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
