@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "💝 Will You Be My GF?",
+  title: "Just One Question…",
   description: "A special message just for you...",
 };
 
